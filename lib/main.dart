@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regis_app/screen/about_screen.dart';
 import 'package:regis_app/screen/home_screen.dart';
 
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
 initialRoute: '/home',
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/about': (context) => const Placeholder(),
+        '/about': (context) => const AboutScreen(),
         
       },
     );

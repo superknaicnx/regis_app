@@ -1,4 +1,26 @@
 import 'package:flutter/material.dart';
+import '../widget/my_drawer.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: HomeScreen.routeName,
+      routes: {
+        HomeScreen.routeName: (context) => HomeScreen(),
+        SettingsScreen.routeName: (context) => SettingsScreen(),
+      },
+    );
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -10,6 +32,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String name = "Winai Kankhat";
+  String accountemail = "winai249@gmail.com";
 
   void changeName() {
     setState(() {
@@ -20,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: Text(
           'Home',
@@ -34,6 +57,22 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: changeName,
         child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class SettingsScreen extends StatelessWidget {
+  static const routeName = '/settings';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
+      body: Center(
+        child: Text('Settings Page', style: TextStyle(fontSize: 24)),
       ),
     );
   }
