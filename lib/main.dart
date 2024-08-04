@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regis_app/screen/home_screen.dart';
 
 
 void main() {
@@ -18,7 +19,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 11, 109, 3)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Welcome to REGIS'),
+      // home: const MyHomePage(title: 'Welcome to REGIS'),
+      //home: HomeScreen(),
+initialRoute: '/home',
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/about': (context) => const Placeholder(),
+        
+      },
     );
   }
 }
