@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -10,11 +10,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String name = "Winai Kankhat";
-  @override
-  void setState(() {
-    name = "Somchai Jaidee";
-  });
-}
+
+  void changeName() {
+    setState(() {
+      name = "Somchai Jaidee";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,16 +25,16 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(
           'Home',
           style: TextStyle(color: Color.fromRGBO(241, 239, 234, 1)),
-          ) ,
+        ),
         backgroundColor: Colors.blue.shade800,
       ),
-      body:  Center(
-        FloatingActionButton(
-          onPressed: changname,
-        )
-        child: Text("สวัสดีครับ $name"),
-       
-      ), 
+      body: Center(
+        child: Text(name, style: TextStyle(fontSize: 24)),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: changeName,
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
