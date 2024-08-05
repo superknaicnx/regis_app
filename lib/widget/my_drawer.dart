@@ -29,7 +29,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     leading: Icon(Icons.home),
                     title: Text("Home"),
                     onTap: () {
-                  
+                  Navigator.pushNamed(context, '/home');
                 },
                   ),
                   ListTile(
